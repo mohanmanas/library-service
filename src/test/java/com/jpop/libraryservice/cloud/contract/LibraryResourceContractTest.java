@@ -1,22 +1,22 @@
 package com.jpop.libraryservice.cloud.contract;
 
 import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties.StubsMode;
-import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.jpop.libraryservice.LibraryServiceApplication;
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 @SpringBootTest(classes = LibraryServiceApplication.class)
 @AutoConfigureMockMvc
 @AutoConfigureStubRunner(stubsMode = StubsMode.LOCAL, ids = {"com.jpop:book-service:0.0.1-SNAPSHOT:8096" })
@@ -24,7 +24,6 @@ public class LibraryResourceContractTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Test
 	public void validate_get_all_books_contract() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/books"))
 			.andExpect(MockMvcResultMatchers.status().isOk())

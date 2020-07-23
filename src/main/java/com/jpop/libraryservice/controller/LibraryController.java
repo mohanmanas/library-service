@@ -1,9 +1,10 @@
 package com.jpop.libraryservice.controller;
 
-import java.net.URI;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.jpop.libraryservice.client.BookServiceClient;
 import com.jpop.libraryservice.client.UserServiceClient;
@@ -23,6 +23,8 @@ import com.jpop.libraryservice.dto.UserDto;
 @RestController
 @RequestMapping(value="/library")
 public class LibraryController {
+	
+	private static final Logger LOG = Logger.getLogger(LibraryController.class.getName());
 
 	@Autowired
 	BookServiceClient bookServiceClient;
@@ -32,6 +34,7 @@ public class LibraryController {
 
 	@RequestMapping("/books")
 	public List<BookDto> getAllBooks() {
+		LOG.log(Level.INFO, "fetching books from library"); 
 		return bookServiceClient.getAllBooks();
 	}
 	
