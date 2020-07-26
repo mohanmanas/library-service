@@ -1,5 +1,6 @@
 package com.jpop.libraryservice.client.fallback;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,7 @@ public class UserClientFallBack implements UserServiceClient{
 				.dob(LocalDate.of(1995, 07, 03))
 				.email("klaus@gmail.com")
 				.phoneNumber("9999999999")
+				.amountDue(BigDecimal.ZERO)
 				.build(),
 				UserDto.builder()
 				.userId(500)
@@ -30,6 +32,7 @@ public class UserClientFallBack implements UserServiceClient{
 				.dob(LocalDate.of(1997, 04, 25))
 				.email("marcel@gmail.com")
 				.phoneNumber("9999999899")
+				.amountDue(new BigDecimal(20))
 				.build());
 	}
 
@@ -41,6 +44,7 @@ public class UserClientFallBack implements UserServiceClient{
 				.dob(LocalDate.of(1997, 04, 25))
 				.email("marcel@gmail.com")
 				.phoneNumber("9999999899")
+				.amountDue(new BigDecimal(20))
 				.build();
 	}
 

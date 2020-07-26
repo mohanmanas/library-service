@@ -18,4 +18,8 @@ public class BookDto {
 	private BigDecimal price;
 	
 	private int publishedYear;
+	
+	private int bookCount;
+	
+	private BigDecimal pricePerDay;
 }

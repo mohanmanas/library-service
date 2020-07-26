@@ -20,12 +20,14 @@ public class BookClientFallBack implements BookServiceClient{
 				.bookName("Dummy Book1")
 				.author("Dummy author1")
 				.publishedYear(2020)
+				.bookCount(1)
 				.build(),
 				BookDto.builder()
 				.bookId(1001)
 				.bookName("Dummy Book2")
 				.author("Dummy author2")
 				.publishedYear(2020)
+				.bookCount(5)
 				.build());
 	}
 
@@ -36,6 +38,7 @@ public class BookClientFallBack implements BookServiceClient{
 				.bookName("Dummy Book")
 				.author("Dummy author")
 				.publishedYear(2020)
+				.bookCount(2)
 				.build();
 	}
 
