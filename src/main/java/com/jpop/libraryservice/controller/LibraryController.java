@@ -70,13 +70,13 @@ public class LibraryController {
 		return userServiceClient.getUser(userId);
 	}
 
-	@PostMapping("/user/{user_id}")
+	@PostMapping("/users/{user_id}")
 	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
 		log.info("Create user from library"); 
 		return userServiceClient.createUser(userDto);
 	}
 
-	@DeleteMapping("/user/{user_id}")
+	@DeleteMapping("/users/{user_id}")
 	public ResponseEntity<UserDto> deleteUser(@PathVariable("user_id") int userId) {
 		log.info("Delete {} user from library", userId); 
 		return userServiceClient.deleteUser(userId);
@@ -88,14 +88,14 @@ public class LibraryController {
 		return userServiceClient.updateUser(userDto, userId);
 	}
 
-	@PostMapping("/user/{user_id}/books/{book_id}")
+	@PostMapping("/users/{user_id}/books/{book_id}")
 	public ResponseEntity<UserDto> issueBookToUser( @PathVariable("user_id") int userId,  @PathVariable("book_id") int bookId) {
 		log.info("Issue {} book to {} user from library", bookId, userId); 
 		libraryService.issueBookToUser(userId, bookId);
 		return ResponseEntity.ok().build();
 	}
 
-	@DeleteMapping("/user/{user_id}/books/{book_id}")
+	@DeleteMapping("/users/{user_id}/books/{book_id}")
 	public ResponseEntity<UserDto> returnBookFromUser( @PathVariable("user_id") int userId,  @PathVariable("book_id") int bookId) {
 		log.info("Return {} book from {} user through library", bookId, userId);
 		libraryService.returnBookFromUser(userId, bookId);

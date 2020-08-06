@@ -49,6 +49,7 @@ public class BookClientFallBack implements BookServiceClient{
 
 	@Override
 	public ResponseEntity<BookDto> deleteBook(int id) {
+		System.out.println("service fall back");
 		return new ResponseEntity<>(null, HttpStatus.SERVICE_UNAVAILABLE);
 	}
 
